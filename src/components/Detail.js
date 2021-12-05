@@ -1,13 +1,40 @@
 import styled from "styled-components"
-
+import {useParams, Redirect} from 'react-router-dom'
+import {useEffect, useState} from 'react'
+import db from '../firebase'
+import {doc, getDoc} from 'firebase/firestore'
+import { setMovies } from "../features/movie/movieSlice"
+ 
 function Detail() {
+
+  const [movie, setMovie] = useState() 
+  const {id} = useParams()
+  const movieRef = doc(db, 'movies', id)
+
+  console.log(id)
+
+  useEffect(() => {
+    const getMovie = async () =>
+    await getDoc(movieRef)
+    .then((doc) => {
+      if(doc?.exists){
+        setMovie(doc.data())
+        console.log(movie)
+      }else{
+        <Redirect to='/'/>
+      }
+    })
+
+    getMovie()
+  }, [])
+
   return (
     <Container>
       <Background>
-        <img src='/images/viewers-marvel.png'/>
+       <img src={movie?.backgroundImg}/>
       </Background>
       <ImageTitle>
-        <img src='/images/viewers-marvel.png'/>
+        <img src={movie?.titleImg} />
       </ImageTitle>
       <Controls>
         <PlayButton>
@@ -26,11 +53,10 @@ function Detail() {
         </GroupWatchButton>
       </Controls>
       <SubTitle >
-        2018 - 7m - Family, Fantassy, Kids, Animation
+        {movie?.subTitle}
       </SubTitle>
       <Description>
-        afjlalfjaofjoajfklajfoajfoaijfoajfoajfojfojfdaojfoajfoajfao
-        adfoajfoiajfoijaofjaodfjaodfjaofjof
+        {movie?.description}
       </Description>
     </Container>
   )
