@@ -63,6 +63,7 @@ const ImageTitle = styled.div`
   min-height: 170px;
   width: 35vw;
   min-width: 200px;
+  margin-top: 60px;
 
   img{
     width: 100%;
@@ -136,6 +137,7 @@ const Description = styled.div`
   font-size: 20px;
   margin-top: 16px;
   color: rgb(249, 249, 249 );
+  max-width: 700px;
 `
 
 export default Detail
