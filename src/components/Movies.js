@@ -25,6 +25,7 @@ function Movies() {
 }
 
 const Container = styled.div`
+  margin-bottom: 50px;
 
 `
 
@@ -36,6 +37,7 @@ const Content = styled.div`
 
 const Wrap = styled.div`
   border-radius: 10px;
+  min-height: 150px;
   cursor: pointer;
   overflow: hidden;
   border: 3px solid rgba(249, 249, 249, 0.1);

@@ -33,7 +33,7 @@ function Header() {
 
   return (
     <Nav >
-      <LogoContainer>
+      <LogoContainer onClick={() => history.push('/')}>
         <Logo src='/images/logo.svg'/>
       </LogoContainer>
       { userName ?
@@ -83,6 +83,7 @@ const Nav = styled.nav`
 
 const Logo = styled.img`
   width: 80px;
+  cursor: pointer;
 `
 
 const NavMenu = styled.div`
@@ -94,7 +95,6 @@ const NavMenu = styled.div`
     display: flex;
     align-items: center;
     padding: 0 12px;
-    cursor: pointer;
 
     img{
       height: 20px;
@@ -125,6 +125,10 @@ const NavMenu = styled.div`
         opacity: 1;
       }
     }
+  }
+
+  @media(max-width: 850px) {
+    display: none;
   }
 `
 

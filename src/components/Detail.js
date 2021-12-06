@@ -45,12 +45,14 @@ function Detail() {
           <img src='/images/play-icon-white.png' />
           <span>Trailer</span>
         </TrailerButton>
-        <AddButton>
-          <span>+</span>
-        </AddButton>
-        <GroupWatchButton>
-          <img src='/images/group-icon.png' />
-        </GroupWatchButton>
+        <div className='control--wrap'>
+          <AddButton>
+            <span>+</span>
+          </AddButton>
+          <GroupWatchButton>
+            <img src='/images/group-icon.png' />
+          </GroupWatchButton>
+        </div>
       </Controls>
       <SubTitle >
         {movie?.subTitle}
@@ -101,6 +103,13 @@ const ImageTitle = styled.div`
 const Controls = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+
+  .control--wrap{
+    display: flex;
+  }
+
 `
 
 const PlayButton = styled.button`
@@ -108,13 +117,10 @@ const PlayButton = styled.button`
   font-size: 15px;
   display: flex;
   align-items: center;
-  height: 56px;
   background-color: rgb(249, 249, 249);
   border: none;
-  padding: 0px 24px;
-  margin-right: 22px;
+  padding: 10px 24px;
   letter-spacing: 1.8px;
-  cursor: pointer;
 
   &:hover {
     background-color: rgb(198, 198, 198);
@@ -126,6 +132,7 @@ const TrailerButton = styled(PlayButton)`
   border: 1px solid rgb(249, 249, 249);
   color: rgb(249, 249 249);
   text-transform: uppercase;
+  color: white;
 
 `
 
@@ -138,7 +145,6 @@ const AddButton = styled.button`
   border-radius: 50%;
   border: 2px solid white;
   background-color: rgba(0, 0, 0, 0.6);
-  cursor: pointer;
   margin-right: 16px;
 
   span {
@@ -164,6 +170,10 @@ const Description = styled.div`
   margin-top: 16px;
   color: rgb(249, 249, 249 );
   max-width: 700px;
+
+  @media(max-width: 550px){
+    font-size: 18px;
+  }
 `
 
 export default Detail
