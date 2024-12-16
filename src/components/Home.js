@@ -8,9 +8,10 @@ import Viewers from "./Viewers";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import db from "../firebase";
-import {collection, onSnapshot} from 'firebase/firestore'
+import {addDoc, collection, onSnapshot} from 'firebase/firestore'
 import { setMovies } from "../features/movie/movieSlice";
 import { selectUserName } from "../features/user/userSlice";
+import movies from '../moviesData'
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -53,10 +54,29 @@ const Home = () => {
     });
   }, [userName]);
 
+  // const addData = async ()  => {
+  //   try {
+  //     await Promise.all(Object.values(movies).map((async (movie) => {
+  //       await addDoc(collection(db, 'movies'), {
+  //         backgroundImg: movie.backgroundImg,
+  //         cardImg: movie.cardImg,
+  //         description: movie.description,
+  //         subTitle: movie.subTitle,
+  //         title: movie.title,
+  //         titleImg: movie.titleImg,
+  //         type: movie.type
+  //       })
+  //     })))
+  //   } catch (err) {
+  //     alert(err)
+  //   }
+  // }
+
   return (
     <Container>
       <ImgSlider />
       <Viewers />
+      {/* <button onClick={addData}>Add Movies</button> */}
       <Recommends />
       <NewDisney />
       <Originals />

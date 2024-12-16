@@ -4,12 +4,12 @@ import {getAuth, GoogleAuthProvider} from 'firebase/auth'
 import {getStorage} from 'firebase/storage'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBZ4VmN3yiIT328A5xm70kQf6PUnzmRKyw",
-  authDomain: "disney-clone-3057b.firebaseapp.com",
-  projectId: "disney-clone-3057b",
-  storageBucket: "disney-clone-3057b.appspot.com",
-  messagingSenderId: "1043737039696",
-  appId: "1:1043737039696:web:f361869551c5823bc65255"
+  apiKey: "AIzaSyDpBpJpXnAy1Se7dXJ-yslilZDODz57lks",
+  authDomain: "disney-clone-bc337.firebaseapp.com",
+  projectId: "disney-clone-bc337",
+  storageBucket: "disney-clone-bc337.firebasestorage.app",
+  messagingSenderId: "123692910583",
+  appId: "1:123692910583:web:e000dcaf4d6fa9553e50f2"
 };
 
 const app = initializeApp(firebaseConfig);

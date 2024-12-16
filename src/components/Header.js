@@ -13,7 +13,6 @@ function Header() {
   const dispatch = useDispatch()
 
   const signIn = () => {
-    console.log('reall it')
     signInWithPopup(auth, provider)
     .then((result) => {
       let user = result.user
